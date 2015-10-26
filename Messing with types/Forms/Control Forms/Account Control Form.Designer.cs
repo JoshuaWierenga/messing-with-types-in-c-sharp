@@ -1,4 +1,4 @@
-﻿namespace level
+﻿namespace Messing_with_types.Forms
 {
     partial class Account_Control_Form
     {
@@ -44,4 +44,3 @@
         #endregion
     }
 }
-
