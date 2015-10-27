@@ -1,19 +1,20 @@
-﻿using level.Forms.main;
+﻿using Messing_with_types.Forms.login;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace level
+namespace Messing_with_types.Forms
 {
-    public partial class Main_Control_Form : Form
+    public partial class Account_Control_Form : Form
     {
         private Dictionary<ControlsEnum, Control> controls = new Dictionary<ControlsEnum, Control>();
 
-        public Main_Control_Form()
+        public Account_Control_Form()
         {
             InitializeComponent();
+            ShowControl(ControlsEnum.LOGIN_CONTROL);
         }
 
-        public void ShowControl(ControlsEnum ctrl, playerInfo playerinfo)
+        public void ShowControl(ControlsEnum ctrl)
         {
             Control new_ctrl = null;
 
@@ -23,7 +24,7 @@ namespace level
             }
             else
             {
-                new_ctrl = CreateControl(ctrl, playerinfo);
+                new_ctrl = CreateControl(ctrl);
                 controls[ctrl] = new_ctrl;
             }
 
@@ -33,17 +34,18 @@ namespace level
             new_ctrl.Show();
         }
 
-        private Control CreateControl(ControlsEnum ctrl, playerInfo playerinfo)
+        private Control CreateControl(ControlsEnum ctrl)
         {
             switch (ctrl)
             {
-                case ControlsEnum.MAIN_CONTROL:
-                    return new Main(playerinfo);
+                case ControlsEnum.LOGIN_CONTROL:
+                    return new Signin();
+                case ControlsEnum.SIGNUP_CONTROL:
+                    return new Signup();
                 default:
                     return null;
             }
         }
 
-        
     }
 }

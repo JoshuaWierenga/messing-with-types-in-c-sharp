@@ -1,4 +1,4 @@
-﻿namespace level
+﻿namespace Messing_with_types.Forms.Control_Forms
 {
     partial class Main_Control_Form
     {
@@ -38,10 +38,8 @@
             this.Name = "Main_Control_Form";
             this.Text = "Main";
             this.ResumeLayout(false);
-
         }
 
         #endregion
     }
 }
-

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace level
+namespace Messing_with_types
 {
-    public class playerInfo
+    public class PlayerInfo
     {
         private static List<int> users = new List<int>();
         private static List<int> usersLoggedon = new List<int>();
 
-        public playerInfo(int ID)
+        public PlayerInfo(int ID)
         {
             if (userInfo(ID).Item2 != -1)
             {
@@ -30,9 +30,9 @@ namespace level
                 playerPassword = "-1";
                 playerLevel = -1;
                 loggedin = false;
-            }            
+            }
         }
-        public playerInfo(string Username)
+        public PlayerInfo(string Username)
         {
             if (userInfo(Username).Item2 != -1)
             {
@@ -56,18 +56,19 @@ namespace level
         }
 
         private string playerUsername { get; set; }
-        public int playerID { get; private set; }
-        public string playerDisplayname { get; private set; }
+        private int playerID { get; set; }
+        private string playerDisplayname { get; set; }
         private string playerPassword { get; set; }
-        private int Level { get; set; }
-
-
-        public int playerLevel { get; { return Level; } }
-        public bool isLoggedin { get { return loggedin; } }
+        private int playerLevel { get; set; }
 
         private bool loggedin { get; set; }
         private bool passwordstatus { get; set; }
         private DateTime timeLoggedin { get; set; }
+
+        public int ID { get { return playerID; } }
+        public string Displayname { get { return playerDisplayname; } }
+        public int Level { get { return playerLevel; } }
+        public bool isLoggedin { get { return loggedin; } }
 
         private static Tuple<string, int, string, string, int> userInfo(int playerID)
         {
@@ -144,16 +145,16 @@ namespace level
             return returned;
         }
 
-        public static void login(playerInfo playerinfo)
+        public static void login(PlayerInfo playerinfo)
         {
             if (playerinfo.loggedin == false && playerinfo.passwordstatus == true)
             {
                 playerinfo.loggedin = true;
                 usersLoggedon.Add(playerinfo.playerID);
-                playerinfo.timeLoggedin = DateTime.UtcNow;            
+                playerinfo.timeLoggedin = DateTime.UtcNow;
             }
         }
-        public static void logout(playerInfo playerinfo)
+        public static void logout(PlayerInfo playerinfo)
         {
             if (playerinfo.loggedin == true)
             {
@@ -163,7 +164,7 @@ namespace level
             }
         }
 
-        public static bool checkPassword(playerInfo playerinfo, string password)
+        public static bool checkPassword(PlayerInfo playerinfo, string password)
         {
             if (playerinfo.playerPassword == password)
             {
