@@ -1,4 +1,5 @@
 ﻿using Messing_with_types.Forms;
+using Messing_with_types.Forms.Control_Forms;
 using System;
 using System.Windows.Forms;
 
@@ -11,18 +12,18 @@ namespace Messing_with_types
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            startup = new StartupForm();
+            startup = new startup();
             accountguicontrol = new Account_Control_Form();
             mainguicontrol = new Main_Control_Form();
             Application.Run(startup);
 
         }
 
-        private static StartupForm startup;
+        private static startup startup;
         private static Account_Control_Form accountguicontrol;
         private static Main_Control_Form mainguicontrol;
 
-        public static StartupForm startupForm
+        public static startup startupForm
         {
             get { return startup; }
         }

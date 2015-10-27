@@ -45,6 +45,12 @@
     <Compile Include="Forms\Control Forms\Account Control Form.Designer.cs">
       <DependentUpon>Account Control Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Control Forms\Main Control Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control Forms\Main Control Form.Designer.cs">
+      <DependentUpon>Main Control Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\login\Signup.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -56,6 +62,18 @@
     </Compile>
     <Compile Include="Forms\login\Signin.Designer.cs">
       <DependentUpon>Signin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\main\Main.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\main\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\startup.Designer.cs">
+      <DependentUpon>startup.cs</DependentUpon>
     </Compile>
     <Compile Include="PlayerInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -76,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\login\Signin.resx">
       <DependentUpon>Signin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\startup.resx">
+      <DependentUpon>startup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

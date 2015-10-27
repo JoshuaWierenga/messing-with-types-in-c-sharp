@@ -33,8 +33,8 @@
             this.PasswordText = new System.Windows.Forms.Label();
             this.UsernameBox = new System.Windows.Forms.TextBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
-            this.Signinbutton = new System.Windows.Forms.Button();
-            this.Gotosignup = new System.Windows.Forms.LinkLabel();
+            this.Signupbutton = new System.Windows.Forms.Button();
+            this.Gotosignin = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // Signintext
@@ -43,9 +43,9 @@
             this.Signintext.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.Signintext.Location = new System.Drawing.Point(135, 10);
             this.Signintext.Name = "Signintext";
-            this.Signintext.Size = new System.Drawing.Size(64, 20);
+            this.Signintext.Size = new System.Drawing.Size(70, 20);
             this.Signintext.TabIndex = 5;
-            this.Signintext.Text = "Sign in";
+            this.Signintext.Text = "Sign up";
             // 
             // UsernameText
             // 
@@ -81,39 +81,39 @@
             this.PasswordBox.Size = new System.Drawing.Size(100, 20);
             this.PasswordBox.TabIndex = 11;
             // 
-            // Signinbutton
+            // Signupbutton
             // 
-            this.Signinbutton.Location = new System.Drawing.Point(232, 71);
-            this.Signinbutton.Name = "Signinbutton";
-            this.Signinbutton.Size = new System.Drawing.Size(75, 23);
-            this.Signinbutton.TabIndex = 12;
-            this.Signinbutton.Text = "Sign in";
-            this.Signinbutton.UseVisualStyleBackColor = true;
-            this.Signinbutton.Click += new System.EventHandler(this.Signinbutton_Click);
+            this.Signupbutton.Location = new System.Drawing.Point(232, 71);
+            this.Signupbutton.Name = "Signupbutton";
+            this.Signupbutton.Size = new System.Drawing.Size(75, 23);
+            this.Signupbutton.TabIndex = 12;
+            this.Signupbutton.Text = "Sign up";
+            this.Signupbutton.UseVisualStyleBackColor = true;
+            this.Signupbutton.Click += new System.EventHandler(this.Signupbutton_Click);
             // 
-            // Gotosignup
+            // Gotosignin
             // 
-            this.Gotosignup.AutoSize = true;
-            this.Gotosignup.Location = new System.Drawing.Point(110, 142);
-            this.Gotosignup.Name = "Gotosignup";
-            this.Gotosignup.Size = new System.Drawing.Size(140, 13);
-            this.Gotosignup.TabIndex = 13;
-            this.Gotosignup.TabStop = true;
-            this.Gotosignup.Text = "Don`t have an account yet?";
-            this.Gotosignup.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Gotosignup_LinkClicked);
+            this.Gotosignin.AutoSize = true;
+            this.Gotosignin.Location = new System.Drawing.Point(110, 142);
+            this.Gotosignin.Name = "Gotosignin";
+            this.Gotosignin.Size = new System.Drawing.Size(132, 13);
+            this.Gotosignin.TabIndex = 13;
+            this.Gotosignin.TabStop = true;
+            this.Gotosignin.Text = "Already have an account?";
+            this.Gotosignin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Gotosignup_LinkClicked);
             // 
-            // Signin
+            // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Gotosignup);
-            this.Controls.Add(this.Signinbutton);
+            this.Controls.Add(this.Gotosignin);
+            this.Controls.Add(this.Signupbutton);
             this.Controls.Add(this.PasswordBox);
             this.Controls.Add(this.UsernameBox);
             this.Controls.Add(this.PasswordText);
             this.Controls.Add(this.UsernameText);
             this.Controls.Add(this.Signintext);
-            this.Name = "Signin";
+            this.Name = "Signup";
             this.Size = new System.Drawing.Size(360, 200);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,7 +127,7 @@
         private System.Windows.Forms.Label PasswordText;
         private System.Windows.Forms.TextBox UsernameBox;
         private System.Windows.Forms.TextBox PasswordBox;
-        private System.Windows.Forms.Button Signinbutton;
-        private System.Windows.Forms.LinkLabel Gotosignup;
+        private System.Windows.Forms.Button Signupbutton;
+        private System.Windows.Forms.LinkLabel Gotosignin;
     }
 }
