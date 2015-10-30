@@ -145,22 +145,22 @@ namespace Messing_with_types
             return returned;
         }
 
-        public static void login(PlayerInfo playerinfo)
+        public void login()
         {
-            if (playerinfo.loggedin == false && playerinfo.passwordstatus == true)
+            if (loggedin == false && passwordstatus == true)
             {
-                playerinfo.loggedin = true;
-                usersLoggedon.Add(playerinfo.playerID);
-                playerinfo.timeLoggedin = DateTime.UtcNow;
+                loggedin = true;
+                usersLoggedon.Add(playerID);
+                timeLoggedin = DateTime.UtcNow;
             }
         }
-        public static void logout(PlayerInfo playerinfo)
+        public void logout()
         {
-            if (playerinfo.loggedin == true)
+            if (loggedin == true)
             {
-                playerinfo.loggedin = false;
-                usersLoggedon.Remove(playerinfo.playerID);
-                playerinfo.timeLoggedin = DateTime.MinValue;
+                loggedin = false;
+                usersLoggedon.Remove(playerID);
+                timeLoggedin = DateTime.MinValue;
             }
         }
 

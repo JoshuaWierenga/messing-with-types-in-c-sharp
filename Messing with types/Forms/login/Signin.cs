@@ -15,13 +15,11 @@ namespace Messing_with_types.Forms.login
         private void Signinbutton_Click(object sender, EventArgs e)
         {
             PlayerInfo user = new PlayerInfo(UsernameBox.Text);
-            Console.WriteLine(UsernameBox.Text + " : " + user.ID);
             if (user.ID != -1)
             {
-                Console.WriteLine(PasswordBox.Text + " : " + PlayerInfo.checkPassword(user, PasswordBox.Text));
                 if (PlayerInfo.checkPassword(user, PasswordBox.Text) == true)
                 {
-                    PlayerInfo.login(user);
+                    user.login();
                     if (user.isLoggedin)
                     {
                         Startup.startupForm.Hide();
