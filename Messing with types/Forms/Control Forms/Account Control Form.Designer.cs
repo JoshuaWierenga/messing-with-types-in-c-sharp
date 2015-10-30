@@ -38,7 +38,6 @@
             this.Name = "Account_Control_Form";
             this.Text = "Login";
             this.ResumeLayout(false);
-
         }
 
         #endregion

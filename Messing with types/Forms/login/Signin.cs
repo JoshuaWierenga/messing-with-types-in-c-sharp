@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Messing_with_types.Forms.login
@@ -17,7 +15,7 @@ namespace Messing_with_types.Forms.login
             PlayerInfo user = new PlayerInfo(UsernameBox.Text);
             if (user.ID != -1)
             {
-                if (PlayerInfo.checkPassword(user, PasswordBox.Text) == true)
+                if (user.checkPassword(PasswordBox.Text) == true)
                 {
                     user.login();
                     if (user.isLoggedin)

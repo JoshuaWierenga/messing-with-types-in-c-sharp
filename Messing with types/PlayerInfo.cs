@@ -70,7 +70,7 @@ namespace Messing_with_types
         public int Level { get { return playerLevel; } }
         public bool isLoggedin { get { return loggedin; } }
 
-        private static Tuple<string, int, string, string, int> userInfo(int playerID)
+        private Tuple<string, int, string, string, int> userInfo(int playerID)
         {
             if (File.Exists("Players"))
             {
@@ -87,7 +87,7 @@ namespace Messing_with_types
             return Tuple.Create("-1", -1, "-1", "-1", -1);
         }
 
-        private static Tuple<string, int, string, string, int> userInfo(string Username)
+        private Tuple<string, int, string, string, int> userInfo(string Username)
         {
             if (File.Exists("Players"))
             {
@@ -164,11 +164,11 @@ namespace Messing_with_types
             }
         }
 
-        public static bool checkPassword(PlayerInfo playerinfo, string password)
+        public bool checkPassword(string password)
         {
-            if (playerinfo.playerPassword == password)
+            if (playerPassword == password)
             {
-                playerinfo.passwordstatus = true;
+                passwordstatus = true;
                 return true;
             }
             return false;

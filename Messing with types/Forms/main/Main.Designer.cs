@@ -45,12 +45,12 @@
             // LevelBox
             // 
             this.LevelBox.AutoSize = true;
-            this.LevelBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LevelBox.Location = new System.Drawing.Point(321, 78);
+            this.LevelBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LevelBox.Location = new System.Drawing.Point(322, 73);
             this.LevelBox.Name = "LevelBox";
-            this.LevelBox.Size = new System.Drawing.Size(93, 31);
+            this.LevelBox.Size = new System.Drawing.Size(71, 25);
             this.LevelBox.TabIndex = 1;
-            this.LevelBox.Text = "Level:\r\n";
+            this.LevelBox.Text = "Level:\r";
             // 
             // Main
             // 
