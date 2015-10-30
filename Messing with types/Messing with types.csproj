@@ -95,6 +95,9 @@
     <EmbeddedResource Include="Forms\login\Signin.resx">
       <DependentUpon>Signin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\main\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\startup.resx">
       <DependentUpon>startup.cs</DependentUpon>
     </EmbeddedResource>

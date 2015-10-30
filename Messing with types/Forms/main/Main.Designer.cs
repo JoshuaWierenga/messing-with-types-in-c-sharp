@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.NameBox = new System.Windows.Forms.Label();
+            this.LevelBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameBox
@@ -37,22 +38,36 @@
             this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameBox.Location = new System.Drawing.Point(321, 33);
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(0, 31);
+            this.NameBox.Size = new System.Drawing.Size(76, 31);
             this.NameBox.TabIndex = 0;
+            this.NameBox.Text = "User";
+            // 
+            // LevelBox
+            // 
+            this.LevelBox.AutoSize = true;
+            this.LevelBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LevelBox.Location = new System.Drawing.Point(321, 78);
+            this.LevelBox.Name = "LevelBox";
+            this.LevelBox.Size = new System.Drawing.Size(93, 31);
+            this.LevelBox.TabIndex = 1;
+            this.LevelBox.Text = "Level:\r\n";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LevelBox);
             this.Controls.Add(this.NameBox);
             this.Name = "Main";
             this.Size = new System.Drawing.Size(500, 500);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
 
         private System.Windows.Forms.Label NameBox;
+        private System.Windows.Forms.Label LevelBox;
     }
 }

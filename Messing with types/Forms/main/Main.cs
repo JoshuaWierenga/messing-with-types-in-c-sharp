@@ -8,12 +8,13 @@ namespace Messing_with_types.Forms.main
         {
             if (playerinfo.isLoggedin != true)
             {
-                Startup.startupForm.Show();
                 Startup.MainForm.Hide();
+                Startup.startupForm.Show();
             }
 
             InitializeComponent();
             NameBox.Text = playerinfo.Displayname;
+            LevelBox.Text = playerinfo.Level.ToString();
         }
     }
 }
