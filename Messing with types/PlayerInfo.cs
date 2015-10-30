@@ -18,7 +18,8 @@ namespace Messing_with_types
                 playerUsername = userInfo(playerID).Item1;
                 playerDisplayname = userInfo(playerID).Item3;
                 playerPassword = userInfo(playerID).Item4;
-                playerLevel = userInfo(playerID).Item5;
+                playerLevel = getLevel(userInfo(playerID).Item5);
+                playerPoints = userInfo(playerID).Item5;
                 loggedin = false;
                 users.Add(playerID);
             }
@@ -29,6 +30,7 @@ namespace Messing_with_types
                 playerDisplayname = "-1";
                 playerPassword = "-1";
                 playerLevel = -1;
+                playerPoints = -1;
                 loggedin = false;
             }
         }
@@ -40,7 +42,8 @@ namespace Messing_with_types
                 playerUsername = userInfo(playerID).Item1;
                 playerDisplayname = userInfo(playerID).Item3;
                 playerPassword = userInfo(playerID).Item4;
-                playerLevel = userInfo(playerID).Item5;
+                playerLevel = getLevel(userInfo(playerID).Item5);
+                playerPoints = userInfo(playerID).Item5;
                 loggedin = false;
                 users.Add(playerID);
             }
@@ -51,6 +54,7 @@ namespace Messing_with_types
                 playerDisplayname = "-1";
                 playerPassword = "-1";
                 playerLevel = -1;
+                playerPoints = -1;
                 loggedin = false;
             }
         }
@@ -60,6 +64,7 @@ namespace Messing_with_types
         private string playerDisplayname { get; set; }
         private string playerPassword { get; set; }
         private int playerLevel { get; set; }
+        private int playerPoints { get; set; }
 
         private bool loggedin { get; set; }
         private bool passwordstatus { get; set; }
@@ -68,6 +73,7 @@ namespace Messing_with_types
         public int ID { get { return playerID; } }
         public string Displayname { get { return playerDisplayname; } }
         public int Level { get { return playerLevel; } }
+        public int Points { get { return playerPoints; } }
         public bool isLoggedin { get { return loggedin; } }
 
         private Tuple<string, int, string, string, int> userInfo(int playerID)
@@ -200,6 +206,92 @@ namespace Messing_with_types
                 }
             }
             return false;
+        }
+
+        public void setPoints(int newPoints)
+        {
+            Console.WriteLine(newPoints);
+            if (File.Exists("Players"))
+            {
+                File.WriteAllLines("Players", File.ReadAllLines("Players").Select(line =>
+                    {
+                        if (line.StartsWith(playerUsername + "|" + playerID)) return $"{playerUsername}|{playerID}|{playerDisplayname}|{playerPassword}|{newPoints}";
+                        return line;
+                    }));
+                playerLevel = getLevel(newPoints);
+                playerPoints = newPoints;
+
+            }
+        }
+
+        private int getLevel(int points)
+        {
+            int Level = 0;
+            if (points >= 1364900) Level = 1000;
+            else if (points >= 362900)
+            {
+                for (int i = points; i >= 364900; i = i - 2000)
+                {
+                    Level++;
+                }
+                Level = Level + 500;
+            }
+            else if (points >= 62900)
+            {
+                for (int i = points; i >= 63900; i = i - 1000)
+                {
+                    Level++;
+                }
+                Level = Level + 200;
+            }
+            else if (points >= 12900)
+            {
+                for (int i = points; i >= 13400; i = i - 500)
+                {
+                    Level++;
+                }
+                Level = Level + 100;
+            }
+            else if (points >= 2900)
+            {
+                for (int i = points; i >= 3100; i = i - 200)
+                {
+                    Level++;
+                }
+                Level = Level + 50;
+            }
+            else if (points >= 800)
+            {
+                for (int i = points; i >= 900; i = i - 100)
+                {
+                    Level++;
+                }
+                Level = Level + 30;
+            }
+            else if (points >= 300)
+            {
+                for (int i = points; i >= 350; i = i - 50)
+                {
+                    Level++;
+                }
+                Level = Level + 20;
+            }
+            else if (points >= 100)
+            {
+                for (int i = points; i >= 120; i = i - 20)
+                {
+                    Level++;
+                }
+                Level = Level + 10;
+            }
+            else
+            {
+                for (int i = points; i >= 10; i = i - 10)
+                {
+                    Level++;
+                }
+            }
+            return Level;
         }
     }
 }
