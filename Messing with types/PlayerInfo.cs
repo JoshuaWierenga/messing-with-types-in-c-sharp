@@ -228,69 +228,14 @@ namespace Messing_with_types
         {
             int Level = 0;
             if (points >= 1364900) Level = 1000;
-            else if (points >= 362900)
-            {
-                for (int i = points; i >= 364900; i = i - 2000)
-                {
-                    Level++;
-                }
-                Level = Level + 500;
-            }
-            else if (points >= 62900)
-            {
-                for (int i = points; i >= 63900; i = i - 1000)
-                {
-                    Level++;
-                }
-                Level = Level + 200;
-            }
-            else if (points >= 12900)
-            {
-                for (int i = points; i >= 13400; i = i - 500)
-                {
-                    Level++;
-                }
-                Level = Level + 100;
-            }
-            else if (points >= 2900)
-            {
-                for (int i = points; i >= 3100; i = i - 200)
-                {
-                    Level++;
-                }
-                Level = Level + 50;
-            }
-            else if (points >= 800)
-            {
-                for (int i = points; i >= 900; i = i - 100)
-                {
-                    Level++;
-                }
-                Level = Level + 30;
-            }
-            else if (points >= 300)
-            {
-                for (int i = points; i >= 350; i = i - 50)
-                {
-                    Level++;
-                }
-                Level = Level + 20;
-            }
-            else if (points >= 100)
-            {
-                for (int i = points; i >= 120; i = i - 20)
-                {
-                    Level++;
-                }
-                Level = Level + 10;
-            }
-            else
-            {
-                for (int i = points; i >= 10; i = i - 10)
-                {
-                    Level++;
-                }
-            }
+            else if (points >= 362900) { for (int i = points; i >= 364900; i -= 2000) Level++; Level += 500; }
+            else if (points >= 62900) { for (int i = points; i >= 63900; i -= 1000) Level++; Level += 200; }
+            else if (points >= 12900) { for (int i = points; i >= 13400; i -= 500) Level++; Level += 100; }
+            else if (points >= 2900) { for (int i = points; i >= 3100; i -= 200) Level++; Level += 50; }
+            else if (points >= 800) { for (int i = points; i >= 900; i -= 100) Level++; Level += 30; }
+            else if (points >= 300) { for (int i = points; i >= 350; i -= 50) Level++; Level += 20; }
+            else if (points >= 100) { for (int i = points; i >= 120; i -= 20) Level++; Level += 10; }
+            else for (int i = points; i >= 10; i -= 10) Level++;
             return Level;
         }
     }

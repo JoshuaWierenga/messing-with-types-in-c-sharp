@@ -18,7 +18,7 @@ namespace Messing_with_types.Forms.main
             Refresh();
         }
 
-        void Refresh()
+        new void Refresh()
         {
             NameBox.Text = playerinfo.Displayname;
             LevelBox.Text = "Level: " + playerinfo.Level.ToString();
