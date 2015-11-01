@@ -22,6 +22,7 @@ namespace Messing_with_types.Forms.main
         {
             NameBox.Text = playerinfo.Displayname;
             LevelBox.Text = "Level: " + playerinfo.Level.ToString();
+            RankBox.Text = "Rank: " + playerinfo.Rank;
         }
 
         private void Gain1Points_Click(object sender, System.EventArgs e)

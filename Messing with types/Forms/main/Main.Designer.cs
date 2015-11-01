@@ -35,6 +35,7 @@
             this.Gain100Points = new System.Windows.Forms.Button();
             this.Gain10000Points = new System.Windows.Forms.Button();
             this.Gain1000Points = new System.Windows.Forms.Button();
+            this.RankBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameBox
@@ -51,7 +52,7 @@
             // 
             this.LevelBox.AutoSize = true;
             this.LevelBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LevelBox.Location = new System.Drawing.Point(322, 73);
+            this.LevelBox.Location = new System.Drawing.Point(322, 89);
             this.LevelBox.Name = "LevelBox";
             this.LevelBox.Size = new System.Drawing.Size(71, 25);
             this.LevelBox.TabIndex = 1;
@@ -107,10 +108,21 @@
             this.Gain1000Points.UseVisualStyleBackColor = true;
             this.Gain1000Points.Click += new System.EventHandler(this.Gain1000Points_Click);
             // 
+            // RankBox
+            // 
+            this.RankBox.AutoSize = true;
+            this.RankBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RankBox.Location = new System.Drawing.Point(322, 64);
+            this.RankBox.Name = "RankBox";
+            this.RankBox.Size = new System.Drawing.Size(68, 25);
+            this.RankBox.TabIndex = 9;
+            this.RankBox.Text = "Rank:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.RankBox);
             this.Controls.Add(this.Gain10000Points);
             this.Controls.Add(this.Gain1000Points);
             this.Controls.Add(this.Gain100Points);
@@ -134,5 +146,6 @@
         private System.Windows.Forms.Button Gain100Points;
         private System.Windows.Forms.Button Gain10000Points;
         private System.Windows.Forms.Button Gain1000Points;
+        private System.Windows.Forms.Label RankBox;
     }
 }

@@ -20,6 +20,7 @@ namespace Messing_with_types
                 playerPassword = userInfo(playerID).Item4;
                 playerLevel = getLevel(userInfo(playerID).Item5);
                 playerPoints = userInfo(playerID).Item5;
+                playerRank = getRank(playerLevel);
                 loggedin = false;
                 users.Add(playerID);
             }
@@ -31,6 +32,7 @@ namespace Messing_with_types
                 playerPassword = "-1";
                 playerLevel = -1;
                 playerPoints = -1;
+                playerRank = -1;
                 loggedin = false;
             }
         }
@@ -44,6 +46,7 @@ namespace Messing_with_types
                 playerPassword = userInfo(playerID).Item4;
                 playerLevel = getLevel(userInfo(playerID).Item5);
                 playerPoints = userInfo(playerID).Item5;
+                playerRank = getRank(playerLevel);
                 loggedin = false;
                 users.Add(playerID);
             }
@@ -55,6 +58,7 @@ namespace Messing_with_types
                 playerPassword = "-1";
                 playerLevel = -1;
                 playerPoints = -1;
+                playerRank = -1;
                 loggedin = false;
             }
         }
@@ -65,6 +69,7 @@ namespace Messing_with_types
         private string playerPassword { get; set; }
         private int playerLevel { get; set; }
         private int playerPoints { get; set; }
+        private int playerRank { get; set; }
 
         private bool loggedin { get; set; }
         private bool passwordstatus { get; set; }
@@ -74,6 +79,7 @@ namespace Messing_with_types
         public string Displayname { get { return playerDisplayname; } }
         public int Level { get { return playerLevel; } }
         public int Points { get { return playerPoints; } }
+        public int Rank { get { return playerRank; } }
         public bool isLoggedin { get { return loggedin; } }
 
         private Tuple<string, int, string, string, int> userInfo(int playerID)
@@ -220,6 +226,7 @@ namespace Messing_with_types
                     }));
                 playerLevel = getLevel(newPoints);
                 playerPoints = newPoints;
+                playerRank = getRank(playerLevel);
 
             }
         }
@@ -237,6 +244,21 @@ namespace Messing_with_types
             else if (points >= 100) { for (int i = points; i >= 120; i -= 20) Level++; Level += 10; }
             else for (int i = points; i >= 10; i -= 10) Level++;
             return Level;
+        }
+
+        private int getRank(int Level)
+        {
+            int Rank = 0;
+            if (Level >= 1000) Rank = 8;
+            else if (Level >= 500) Rank = 7;
+            else if (Level >= 200) Rank = 6;
+            else if (Level >= 100) Rank = 5;
+            else if (Level >= 50) Rank = 4;
+            else if (Level >= 30) Rank = 3;
+            else if (Level >= 20) Rank = 2;
+            else if (Level >= 10) Rank = 1;
+            else Rank = 0;
+            return Rank;
         }
     }
 }
