@@ -1,0 +1,21 @@
+0 – 0 – 0 points to next level
+1 – 0 - 1 points to next level
+2 – 1 – 2 points to next level 
+5 – 7 – 5 points to next level
+10 – 32 – 10 points to next level
+20 – 132 – 20 points to next level
+50 – 732 – 50 points to next level
+100 – 3232 – 100 points to next level 
+200 – 13232 – 200 points to next level
+500 – 73232 – 500 points to next level
+1000 – 323232 – 1000 points to next level
+2000 - 1323232 - 2000 points to next level
+5000 - 7323232 - 5000 points to next level
+
+
+if dont have old level or old increment
+	if number starts with one or two: number / 2
+	if number starts with five: number / 2.5
+
+Points = (new level – old level) * old increment + old points
+Level = 

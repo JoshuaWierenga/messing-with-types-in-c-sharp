@@ -20,7 +20,7 @@ namespace Messing_with_types
                 playerPassword = userInfo(playerID).Item4;
                 playerLevel = getLevel(userInfo(playerID).Item5);
                 playerPoints = userInfo(playerID).Item5;
-                playerRank = getRank(playerLevel);
+                playerRank = getLevelInfo(playerLevel).Item3;
                 loggedin = false;
                 users.Add(playerID);
             }
@@ -46,7 +46,7 @@ namespace Messing_with_types
                 playerPassword = userInfo(playerID).Item4;
                 playerLevel = getLevel(userInfo(playerID).Item5);
                 playerPoints = userInfo(playerID).Item5;
-                playerRank = getRank(playerLevel);
+                playerRank = getLevelInfo(playerLevel).Item3;
                 loggedin = false;
                 users.Add(playerID);
             }
@@ -226,39 +226,79 @@ namespace Messing_with_types
                     }));
                 playerLevel = getLevel(newPoints);
                 playerPoints = newPoints;
-                playerRank = getRank(playerLevel);
+                playerRank = getLevelInfo(playerLevel).Item3;
 
             }
         }
 
-        private int getLevel(int points)
+        private static int getLevel(int points)
         {
-            int Level = 0;
-            if (points >= 1364900) Level = 1000;
-            else if (points >= 362900) { for (int i = points; i >= 364900; i -= 2000) Level++; Level += 500; }
-            else if (points >= 62900) { for (int i = points; i >= 63900; i -= 1000) Level++; Level += 200; }
-            else if (points >= 12900) { for (int i = points; i >= 13400; i -= 500) Level++; Level += 100; }
-            else if (points >= 2900) { for (int i = points; i >= 3100; i -= 200) Level++; Level += 50; }
-            else if (points >= 800) { for (int i = points; i >= 900; i -= 100) Level++; Level += 30; }
-            else if (points >= 300) { for (int i = points; i >= 350; i -= 50) Level++; Level += 20; }
-            else if (points >= 100) { for (int i = points; i >= 120; i -= 20) Level++; Level += 10; }
-            else for (int i = points; i >= 10; i -= 10) Level++;
-            return Level;
+            var levelInfo = getLevelInfo(points);
+            Console.WriteLine(levelInfo.Item1);
+            Console.WriteLine(levelInfo.Item2);
+            Console.WriteLine(levelInfo.Item3);
+            Console.WriteLine(levelInfo.Item4);
+
+            if (levelInfo.Item1 == points)
+            {
+                return levelInfo.Item3;
+            }
+            else if (levelInfo.Item1 < points && (levelInfo.Item4 - levelInfo.Item3) * levelInfo.Item3 + levelInfo.Item1 > points)
+            {
+                int times = 0;
+                for (var i = levelInfo.Item1; i <= points; i += 1)
+                {
+                    Console.WriteLine(times);
+                    if (i == points) return times / levelInfo.Item3 + levelInfo.Item3;
+                    else times++;
+                }
+            }
+            return -1;
         }
 
-        private int getRank(int Level)
+        private static Tuple<int, int, int, int> getLevelInfo(int points)
         {
-            int Rank = 0;
-            if (Level >= 1000) Rank = 8;
-            else if (Level >= 500) Rank = 7;
-            else if (Level >= 200) Rank = 6;
-            else if (Level >= 100) Rank = 5;
-            else if (Level >= 50) Rank = 4;
-            else if (Level >= 30) Rank = 3;
-            else if (Level >= 20) Rank = 2;
-            else if (Level >= 10) Rank = 1;
-            else Rank = 0;
-            return Rank;
+            if (points == 0) return Tuple.Create(1, 0, 1, 2);
+
+            int oldlevel = 1;
+            int newlevel = 2;
+            int nextlevel = 0;
+            int temppoints = 0;
+            bool finished = false;
+
+            while (finished == false)
+            {
+                int currentpoints = (newlevel - oldlevel) * oldlevel + temppoints;
+
+                int temp = newlevel;
+                while (temp >= 10)
+                {
+                    temp /= 10;
+                }
+
+                if (temp == 1 || temp == 5) nextlevel *= 2;
+                else if (temp == 2) nextlevel = Convert.ToInt32(newlevel * 2.5m);
+
+
+                Console.WriteLine(currentpoints);
+                Console.WriteLine(points);
+                Console.WriteLine($"Does {currentpoints} = {points}?");
+                Console.WriteLine($"Or is {currentpoints} below {points} and is {(nextlevel - newlevel) * newlevel + currentpoints} above {points}?");
+                if (currentpoints == points || currentpoints < points && (nextlevel - newlevel) * newlevel + currentpoints > points)
+                {
+                    finished = true;
+                    return Tuple.Create(currentpoints, oldlevel, newlevel, nextlevel);
+                }
+                else
+                {
+                    temppoints = currentpoints;
+                    oldlevel = newlevel;
+
+                    if (temp == 1 || temp == 5) newlevel *= 2;
+                    else if (temp == 2) newlevel = Convert.ToInt32(newlevel * 2.5m);
+                }
+            }
+            return Tuple.Create(-1, -1, -1, -1);
         }
     }
 }
