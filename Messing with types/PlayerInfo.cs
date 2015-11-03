@@ -245,13 +245,10 @@ namespace Messing_with_types
             }
             else if (levelInfo.Item1 < points && (levelInfo.Item4 - levelInfo.Item3) * levelInfo.Item3 + levelInfo.Item1 > points)
             {
-                int times = 0;
-                for (var i = levelInfo.Item1; i <= points; i += 1)
-                {
-                    Console.WriteLine(times);
-                    if (i == points) return times / levelInfo.Item3 + levelInfo.Item3;
-                    else times++;
-                }
+                int diference = points - levelInfo.Item1;
+                Console.WriteLine($"{points} - {levelInfo.Item1} = {diference}");
+                Console.WriteLine($"{diference / levelInfo.Item3} + {levelInfo.Item3} = {(diference / levelInfo.Item3) + levelInfo.Item3}");
+                return (diference / levelInfo.Item3) + levelInfo.Item3;
             }
             return -1;
         }
