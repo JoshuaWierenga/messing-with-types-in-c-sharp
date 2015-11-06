@@ -12,19 +12,16 @@ namespace Messing_with_types.Forms.login
 
         private void Signinbutton_Click(object sender, EventArgs e)
         {
-            PlayerInfo user = new PlayerInfo(UsernameBox.Text);
+            PlayerInfo user = new PlayerInfo(UsernameBox.Text, PasswordText.Text);
             if (user.ID != -1)
             {
-                if (user.checkPassword(PasswordBox.Text) == true)
+                user.login();
+                if (user.isLoggedin)
                 {
-                    user.login();
-                    if (user.isLoggedin)
-                    {
-                        Startup.startupForm.Hide();
-                        Startup.AccountForm.Hide();
-                        Startup.MainForm.Show();
-                        Startup.MainForm.ShowControl(ControlsEnum.MAIN_CONTROL, user);
-                    }
+                    Startup.startupForm.Hide();
+                    Startup.AccountForm.Hide();
+                    Startup.MainForm.Show();
+                    Startup.MainForm.ShowControl(ControlsEnum.MAIN_CONTROL, user);
                 }
             }
         }
